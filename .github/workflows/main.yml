@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       Greeting: Hello
-    if: "github.event.release.prerelease":
+    if: "github.event.release.prerelease"
     steps:
       - name: "Say Hello Mona it's Monday"
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
