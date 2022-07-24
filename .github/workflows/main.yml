@@ -1,18 +1,26 @@
 env:
   DAY_OF_WEEK: Monday
-  
+
 on:
   release:
-    types: [prereleased]
-    
+    types: [published]
+
 jobs:
-  greeting_job:
+  build:
     runs-on: ubuntu-latest
     env:
       Greeting: Hello
+    if github.event.release.prerelease:
     steps:
       - name: "Say Hello Mona it's Monday"
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
           First_Name: Mona
+    if !github.event.release.prerelease:
+    steps:
+      - name: "Say Hello ????? it's UR280UF8J4"
+        if: ${{ env.DAY_OF_WEEK == 'UR280UF8J4' }}
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: ?????
