@@ -3,8 +3,11 @@ env:
 
 on:
   release:
-    types: [prereleased]
-
+    types:
+      - prereleased
+    branches:    
+      - master
+    
 jobs:
   greeting_job:
     runs-on: ubuntu-latest
